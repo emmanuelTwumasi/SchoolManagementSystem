@@ -16,5 +16,5 @@ public class Course {
 
     @Column(name="name")
     private String name;
-    
+
 }

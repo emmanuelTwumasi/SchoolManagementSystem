@@ -9,6 +9,7 @@ import com.emmanueltwumasi.schoolmanagementsystem.service.responsedto.StudentDat
 import com.emmanueltwumasi.schoolmanagementsystem.service.serviceInt.StudentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -18,6 +19,7 @@ public class StudentServiceImpl implements StudentService {
     private final StudentRepository repository;
     private final StudentConverter studentConverter;
 
+    @Transactional(rollbackFor = Exception.class)
     @Override
     public void addStudent(StudentDto studentInfo) {
         Student student = studentConverter.infoToEntity(studentInfo);
@@ -32,6 +34,9 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public List<StudentData> getStudents() {
-        return repository.findAll().stream().map(studentConverter::toDto).toList();
+        return repository.findAll()
+                .stream()
+                .map(studentConverter::toDto)
+                .toList();
     }
 }

@@ -8,6 +8,7 @@ import com.emmanueltwumasi.schoolmanagementsystem.service.requestdto.CourseInfo;
 import com.emmanueltwumasi.schoolmanagementsystem.service.serviceInt.CourseService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -16,6 +17,7 @@ import java.util.List;
 public class CourseServiceImpl implements CourseService {
     private final CourseRepository courseRepository;
     private final CourseConverter courseConverter;
+    @Transactional(rollbackFor = Exception.class)
     @Override
     public void addCourse(CourseInfo courseInfo) {
         Course course = courseConverter.toEntity(courseInfo);
@@ -29,6 +31,7 @@ public class CourseServiceImpl implements CourseService {
 
     @Override
     public CourseInfo getCourse(Long courseId) {
-        return courseRepository.findById(courseId).map(courseConverter::toDto).orElseThrow(()->new CourseNotFoundException("No course found."));
+        return courseRepository.findById(courseId).map(courseConverter::toDto)
+                .orElseThrow(()->new CourseNotFoundException("No course found."));
     }
 }

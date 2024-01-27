@@ -26,10 +26,6 @@ public class Student {
     @Column(name = "password")
     private String password;
 
-    @Column(name="role")
-    private Role role;
-
-    @OneToMany
-    private Set<Course> courseList;
-
+    @OneToMany(mappedBy = "student",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    Set<CourseRegistration> registrations;
 }

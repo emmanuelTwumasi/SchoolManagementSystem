@@ -4,7 +4,7 @@ import com.emmanueltwumasi.schoolmanagementsystem.entity.Course;
 import com.emmanueltwumasi.schoolmanagementsystem.repository.CourseRepository;
 import com.emmanueltwumasi.schoolmanagementsystem.service.converter.CourseConverter;
 import com.emmanueltwumasi.schoolmanagementsystem.service.exception.CourseNotFoundException;
-import com.emmanueltwumasi.schoolmanagementsystem.service.requestdto.CourseInfo;
+import com.emmanueltwumasi.schoolmanagementsystem.service.dtos.requestdto.CourseInfo;
 import com.emmanueltwumasi.schoolmanagementsystem.service.serviceInt.CourseService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

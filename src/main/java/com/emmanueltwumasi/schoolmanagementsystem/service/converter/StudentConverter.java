@@ -1,9 +1,8 @@
 package com.emmanueltwumasi.schoolmanagementsystem.service.converter;
 
-import com.emmanueltwumasi.schoolmanagementsystem.entity.Course;
 import com.emmanueltwumasi.schoolmanagementsystem.entity.Student;
-import com.emmanueltwumasi.schoolmanagementsystem.service.requestdto.StudentDto;
-import com.emmanueltwumasi.schoolmanagementsystem.service.responsedto.StudentData;
+import com.emmanueltwumasi.schoolmanagementsystem.service.dtos.requestdto.StudentDto;
+import com.emmanueltwumasi.schoolmanagementsystem.service.dtos.responsedto.StudentData;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -16,7 +15,6 @@ public class StudentConverter{
         student.setFirstName(student.getFirstName());
         student.setLastname(student.getLastname());
         student.setPassword(studentInfo.getPassword());
-        student.setRole(studentInfo.getRole());
         return student;
     }
 
@@ -32,6 +30,6 @@ public class StudentConverter{
     }
 
     private List<String> getStrings(Student student) {
-        return student.getCourseList().stream().map(Course::getName).toList();
+        return student.getRegistrations().stream().map(reg->reg.getCourse().getName()).toList();
     }
 }

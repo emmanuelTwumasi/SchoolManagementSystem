@@ -1,13 +1,9 @@
-package com.emmanueltwumasi.schoolmanagementsystem.service.responsedto;
+package com.emmanueltwumasi.schoolmanagementsystem.service.dtos.responsedto;
 
-import com.emmanueltwumasi.schoolmanagementsystem.entity.Course;
-import com.emmanueltwumasi.schoolmanagementsystem.entity.Role;
 import jakarta.persistence.Column;
-import jakarta.persistence.OneToMany;
 import lombok.Data;
 
 import java.util.List;
-import java.util.Set;
 
 @Data
 public class StudentData {
@@ -19,9 +15,6 @@ public class StudentData {
 
     @Column(name = "username")
     private String username;
-
-    @Column(name="role")
-    private Role role;
 
     private List<String> courses;
 

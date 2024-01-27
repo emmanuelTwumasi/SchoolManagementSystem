@@ -17,4 +17,7 @@ public class Course {
     @Column(name="name")
     private String name;
 
+    @OneToMany(mappedBy = "course",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    Set<CourseRegistration> registrations;
+
 }

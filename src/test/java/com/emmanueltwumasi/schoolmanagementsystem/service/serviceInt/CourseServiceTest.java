@@ -4,21 +4,15 @@ import com.emmanueltwumasi.schoolmanagementsystem.entity.Course;
 import com.emmanueltwumasi.schoolmanagementsystem.repository.CourseRepository;
 import com.emmanueltwumasi.schoolmanagementsystem.service.CourseServiceImpl;
 import com.emmanueltwumasi.schoolmanagementsystem.service.converter.CourseConverter;
-import com.emmanueltwumasi.schoolmanagementsystem.service.requestdto.CourseInfo;
-import org.checkerframework.checker.units.qual.C;
-import org.hamcrest.Matchers;
+import com.emmanueltwumasi.schoolmanagementsystem.service.dtos.requestdto.CourseInfo;
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.mock.mockito.MockBean;
 
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyByte;
 import static org.mockito.Mockito.when;
 
 

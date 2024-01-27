@@ -1,4 +1,4 @@
-package com.emmanueltwumasi.schoolmanagementsystem.service.requestdto;
+package com.emmanueltwumasi.schoolmanagementsystem.service.dtos.requestdto;
 
 import lombok.Data;
 

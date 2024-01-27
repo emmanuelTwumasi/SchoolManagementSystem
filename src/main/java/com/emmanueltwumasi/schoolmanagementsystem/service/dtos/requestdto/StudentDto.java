@@ -1,6 +1,5 @@
-package com.emmanueltwumasi.schoolmanagementsystem.service.requestdto;
+package com.emmanueltwumasi.schoolmanagementsystem.service.dtos.requestdto;
 
-import com.emmanueltwumasi.schoolmanagementsystem.entity.Role;
 import jakarta.persistence.Column;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.Data;
@@ -19,7 +18,4 @@ public class StudentDto {
     @NotEmpty(message = "password is required.")
     private String password;
 
-    @Column(name="role")
-    @NotEmpty(message = "role is required.")
-    private Role role;
 }

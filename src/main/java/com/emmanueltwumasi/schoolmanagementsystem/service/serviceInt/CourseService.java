@@ -1,6 +1,6 @@
 package com.emmanueltwumasi.schoolmanagementsystem.service.serviceInt;
 
-import com.emmanueltwumasi.schoolmanagementsystem.service.requestdto.CourseInfo;
+import com.emmanueltwumasi.schoolmanagementsystem.service.dtos.requestdto.CourseInfo;
 
 import java.util.List;
 

@@ -1,7 +1,9 @@
 package com.emmanueltwumasi.schoolmanagementsystem.controller;
 
-import com.emmanueltwumasi.schoolmanagementsystem.service.requestdto.StudentDto;
-import com.emmanueltwumasi.schoolmanagementsystem.service.responsedto.StudentData;
+import com.emmanueltwumasi.schoolmanagementsystem.service.dtos.requestdto.EnrollmentReq;
+import com.emmanueltwumasi.schoolmanagementsystem.service.dtos.requestdto.StudentDto;
+import com.emmanueltwumasi.schoolmanagementsystem.service.dtos.responsedto.EnrollmentResp;
+import com.emmanueltwumasi.schoolmanagementsystem.service.dtos.responsedto.StudentData;
 import com.emmanueltwumasi.schoolmanagementsystem.service.serviceInt.StudentService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -14,7 +16,7 @@ import java.util.List;
 @RestController
 @RequestMapping(value = "api/v1/students")
 @RequiredArgsConstructor
-public class StudentController {
+public class  StudentController {
 
     private final StudentService studentService;
 
@@ -32,5 +34,8 @@ public class StudentController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-
+    @PostMapping("enroll/student")
+    public ResponseEntity<EnrollmentResp> registerStudent(@RequestBody EnrollmentReq info){
+        return new ResponseEntity<>(studentService.registerStudent(info),HttpStatus.OK);
+    }
 }

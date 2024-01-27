@@ -1,7 +1,7 @@
 package com.emmanueltwumasi.schoolmanagementsystem.service.converter;
 
 import com.emmanueltwumasi.schoolmanagementsystem.entity.Course;
-import com.emmanueltwumasi.schoolmanagementsystem.service.requestdto.CourseInfo;
+import com.emmanueltwumasi.schoolmanagementsystem.service.dtos.requestdto.CourseInfo;
 import org.springframework.stereotype.Component;
 
 @Component

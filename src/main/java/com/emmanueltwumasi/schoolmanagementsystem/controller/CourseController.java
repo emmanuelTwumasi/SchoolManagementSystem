@@ -1,6 +1,6 @@
 package com.emmanueltwumasi.schoolmanagementsystem.controller;
 
-import com.emmanueltwumasi.schoolmanagementsystem.service.requestdto.CourseInfo;
+import com.emmanueltwumasi.schoolmanagementsystem.service.dtos.requestdto.CourseInfo;
 import com.emmanueltwumasi.schoolmanagementsystem.service.serviceInt.CourseService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "api/v1/course")
+@RequestMapping(value = "api/v1/courses")
 @RequiredArgsConstructor
 public class CourseController {
     private final CourseService courseService;

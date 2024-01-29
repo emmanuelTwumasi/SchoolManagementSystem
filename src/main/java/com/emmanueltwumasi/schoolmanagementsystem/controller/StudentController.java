@@ -64,7 +64,7 @@ public class  StudentController {
     public ResponseEntity<EnrollmentResp> registerStudent(@PathVariable("id")Long studentId,@RequestBody @Valid EnrollmentReq info){
         return new ResponseEntity<>(courseRegService.registerStudent(studentId,info), HttpStatus.CREATED);
     }
-    @PostMapping("{id}/enroll")
+    @PostMapping("{id}/un-enroll")
     public ResponseEntity<HttpStatus> unEnrollStudent(@PathVariable("id")Long studentId,@RequestBody @Valid EnrollmentReq info){
         courseRegService.unEnrollStudent(studentId,info);
         return new ResponseEntity<>(HttpStatus.CREATED);

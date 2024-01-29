@@ -1,20 +1,11 @@
 package com.emmanueltwumasi.schoolmanagementsystem.service.dtos.requestdto;
 
-import jakarta.persistence.Column;
+import com.emmanueltwumasi.schoolmanagementsystem.service.dtos.responsedto.StudentCommon;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.Data;
 
 @Data
-public class StudentDto {
-    @Column(name = "firstName")
-    @NotEmpty(message = "firstname is required.")
-    private String firstName;
-
-    @Column(name = "lastName")
-    @NotEmpty(message = "lastname is required.")
-    private String lastname;
-
-    @Column(name = "password")
+public class StudentDto extends StudentCommon {
     @NotEmpty(message = "password is required.")
     private String password;
 

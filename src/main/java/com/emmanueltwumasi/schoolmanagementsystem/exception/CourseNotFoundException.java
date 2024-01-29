@@ -1,4 +1,4 @@
-package com.emmanueltwumasi.schoolmanagementsystem.service.exception;
+package com.emmanueltwumasi.schoolmanagementsystem.exception;
 
 public class CourseNotFoundException extends RuntimeException{
     public CourseNotFoundException(String s) {

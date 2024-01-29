@@ -2,13 +2,16 @@ package com.emmanueltwumasi.schoolmanagementsystem.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
 
+@EqualsAndHashCode(callSuper = true)
 @Entity
 @Data
 @Table(name = "course_registration")
-public class CourseRegistration {
+public class CourseRegistration extends BaseEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,16 +20,16 @@ public class CourseRegistration {
 
     @ManyToOne
     @JoinColumn(name = "student_id")
-    Student student;
+    private Student student;
 
     @ManyToOne
     @JoinColumn(name = "course_id")
-    Course course;
+    private Course course;
 
     @Column(name = "registration_date")
-    LocalDateTime registrationDate;
+    private LocalDateTime registrationDate;
 
     @Column(name = "grade")
-    int grade;
+    private int grade;
 
 }

@@ -29,7 +29,7 @@ public class CourseServiceTest {
 
     @Before
     public void setUp() throws Exception {
-        courseService = new CourseServiceImpl(courseRepository,courseConverter);
+//        courseService = new CourseServiceImpl(courseRepository,courseConverter);
     }
 
     @Test

@@ -1,17 +1,23 @@
 package com.emmanueltwumasi.schoolmanagementsystem.service.serviceInt;
 
 import com.emmanueltwumasi.schoolmanagementsystem.service.dtos.requestdto.EnrollmentReq;
+import com.emmanueltwumasi.schoolmanagementsystem.service.dtos.requestdto.StudentDto;
 import com.emmanueltwumasi.schoolmanagementsystem.service.dtos.responsedto.EnrollmentResp;
 import com.emmanueltwumasi.schoolmanagementsystem.service.dtos.responsedto.StudentData;
-import com.emmanueltwumasi.schoolmanagementsystem.service.dtos.requestdto.StudentDto;
 
 import java.util.List;
 
 
 public interface StudentService {
-    public void addStudent(StudentDto studentInfo);
-    public StudentData getStudentInfo(Long studentId);
-    public List<StudentData> getStudents();
+    void addStudent(StudentDto studentInfo);
 
-    public EnrollmentResp registerStudent(EnrollmentReq info);
+    StudentData getStudentInfo(Long studentId);
+
+    List<StudentData> getStudents();
+
+    void deleteStudent(Long studentId);
+
+    StudentData updateStudentInfo(Long studentId, StudentDto studentDto);
+
+
 }

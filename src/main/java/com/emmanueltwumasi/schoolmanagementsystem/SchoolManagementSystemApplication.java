@@ -2,12 +2,14 @@ package com.emmanueltwumasi.schoolmanagementsystem;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 @SpringBootApplication
-public class SchoolmanagementsystemApplication {
+@EnableJpaAuditing
+public class SchoolManagementSystemApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SchoolmanagementsystemApplication.class, args);
+		SpringApplication.run(SchoolManagementSystemApplication.class, args);
 	}
 
 }

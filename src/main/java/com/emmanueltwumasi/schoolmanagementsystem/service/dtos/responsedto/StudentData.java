@@ -6,13 +6,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class StudentData {
-    @Column(name = "firstName")
-    private String firstName;
-
-    @Column(name = "lastName")
-    private String lastname;
-
+public class StudentData extends StudentCommon{
     @Column(name = "username")
     private String username;
 

@@ -5,6 +5,7 @@ import com.emmanueltwumasi.schoolmanagementsystem.entity.CourseRegistration;
 import com.emmanueltwumasi.schoolmanagementsystem.repository.CourseRepository;
 import com.emmanueltwumasi.schoolmanagementsystem.service.converter.CourseConverter;
 import com.emmanueltwumasi.schoolmanagementsystem.exception.CourseNotFoundException;
+import com.emmanueltwumasi.schoolmanagementsystem.service.dtos.APIResult;
 import com.emmanueltwumasi.schoolmanagementsystem.service.dtos.requestdto.CourseInfo;
 import com.emmanueltwumasi.schoolmanagementsystem.service.serviceInt.CourseRegService;
 import com.emmanueltwumasi.schoolmanagementsystem.service.serviceInt.CourseService;
@@ -29,7 +30,7 @@ public class CourseServiceImpl implements CourseService {
     @Override
     @Transactional
     @CachePut(value = "courses", key = "#result.id")
-    public void addCourse(CourseInfo courseInfo) {
+    public void  addCourse(CourseInfo courseInfo) {
         Course course = courseConverter.toEntity(courseInfo);
         courseRepository.save(course);
     }

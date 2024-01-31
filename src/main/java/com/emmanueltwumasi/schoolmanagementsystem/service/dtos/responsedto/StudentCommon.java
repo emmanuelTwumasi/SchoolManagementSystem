@@ -5,6 +5,7 @@ import lombok.Data;
 
 @Data
 public class StudentCommon{
+    private Long studentId;
     @NotEmpty(message = "firstname is required.")
     private String firstName;
 

@@ -12,6 +12,7 @@ public class StudentConverter{
 
     public Student infoToEntity(StudentDto studentInfo) {
         Student student = new Student();
+        studentInfo.setStudentId(student.getStudentId());
         student.setFirstName(studentInfo.getFirstName());
         student.setLastName(studentInfo.getLastName());
         student.setUsername(studentInfo.getFirstName().toLowerCase().charAt(0)+studentInfo.getLastName().toLowerCase());
@@ -22,6 +23,7 @@ public class StudentConverter{
 
     public StudentData toDto(Student student) {
         StudentData studentData = new StudentData();
+        studentData.setStudentId(student.getStudentId());
         studentData.setFirstName(student.getFirstName());
         studentData.setLastName(student.getLastName());
         studentData.setUsername(student.getUsername());
@@ -31,7 +33,9 @@ public class StudentConverter{
     }
 
     private List<String> getStrings(Student student) {
-        return student.getRegistrations().stream().map(reg->reg.getCourse().getName()).toList();
+        return student.getRegistrations().stream()
+                .map(reg->reg.getCourse().getName())
+                .toList();
     }
 
     public Student updateEntity(StudentDto studentDto, Student student) {

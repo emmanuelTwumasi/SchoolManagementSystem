@@ -1,14 +1,11 @@
-package com.emmanueltwumasi.schoolmanagementsystem.service;
+package com.emmanueltwumasi.schoolmanagementsystem.service.serviceInt;
 
 import com.emmanueltwumasi.schoolmanagementsystem.entity.Course;
-import com.emmanueltwumasi.schoolmanagementsystem.entity.CourseRegistration;
-import com.emmanueltwumasi.schoolmanagementsystem.repository.CourseRepository;
-import com.emmanueltwumasi.schoolmanagementsystem.service.converter.CourseConverter;
 import com.emmanueltwumasi.schoolmanagementsystem.exception.CourseNotFoundException;
-import com.emmanueltwumasi.schoolmanagementsystem.service.dtos.APIResult;
+import com.emmanueltwumasi.schoolmanagementsystem.repository.CourseRepository;
+import com.emmanueltwumasi.schoolmanagementsystem.service.CourseService;
+import com.emmanueltwumasi.schoolmanagementsystem.service.converter.CourseConverter;
 import com.emmanueltwumasi.schoolmanagementsystem.service.dtos.requestdto.CourseInfo;
-import com.emmanueltwumasi.schoolmanagementsystem.service.serviceInt.CourseRegService;
-import com.emmanueltwumasi.schoolmanagementsystem.service.serviceInt.CourseService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
@@ -17,8 +14,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service
@@ -30,16 +25,16 @@ public class CourseServiceImpl implements CourseService {
     @Override
     @Transactional
     @CachePut(value = "courses", key = "#result.id")
-    public void  addCourse(CourseInfo courseInfo) {
+    public Course addCourse(CourseInfo courseInfo) {
         Course course = courseConverter.toEntity(courseInfo);
-        courseRepository.save(course);
+       return courseRepository.save(course);
     }
 
     @Override
     @Transactional(readOnly = true)
     @Cacheable(value = "courses")
     public List<CourseInfo> fetchAllCourses() {
-        return courseRepository.findAll().stream().map(courseConverter::toDto).toList();
+        return courseRepository.findAll().stream().peek(System.err::println).map(courseConverter::toDto).toList();
     }
 
     @Override

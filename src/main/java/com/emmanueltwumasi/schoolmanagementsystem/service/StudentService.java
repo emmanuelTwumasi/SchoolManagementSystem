@@ -1,15 +1,15 @@
-package com.emmanueltwumasi.schoolmanagementsystem.service.serviceInt;
+package com.emmanueltwumasi.schoolmanagementsystem.service;
 
-import com.emmanueltwumasi.schoolmanagementsystem.service.dtos.requestdto.EnrollmentReq;
+import com.emmanueltwumasi.schoolmanagementsystem.entity.Student;
 import com.emmanueltwumasi.schoolmanagementsystem.service.dtos.requestdto.StudentDto;
-import com.emmanueltwumasi.schoolmanagementsystem.service.dtos.responsedto.EnrollmentResp;
 import com.emmanueltwumasi.schoolmanagementsystem.service.dtos.responsedto.StudentData;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.List;
 
 
 public interface StudentService {
-    void addStudent(StudentDto studentInfo);
+    Student addStudent(StudentDto studentInfo);
 
     StudentData getStudentInfo(Long studentId);
 
@@ -18,6 +18,5 @@ public interface StudentService {
     void deleteStudent(Long studentId);
 
     StudentData updateStudentInfo(Long studentId, StudentDto studentDto);
-
 
 }

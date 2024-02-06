@@ -2,7 +2,7 @@ package com.emmanueltwumasi.schoolmanagementsystem.service.serviceInt;
 
 import com.emmanueltwumasi.schoolmanagementsystem.entity.Course;
 import com.emmanueltwumasi.schoolmanagementsystem.repository.CourseRepository;
-import com.emmanueltwumasi.schoolmanagementsystem.service.CourseServiceImpl;
+import com.emmanueltwumasi.schoolmanagementsystem.service.CourseService;
 import com.emmanueltwumasi.schoolmanagementsystem.service.converter.CourseConverter;
 import com.emmanueltwumasi.schoolmanagementsystem.service.dtos.requestdto.CourseInfo;
 import org.junit.Before;

@@ -1,4 +1,4 @@
-package com.emmanueltwumasi.schoolmanagementsystem.service.serviceInt;
+package com.emmanueltwumasi.schoolmanagementsystem.service;
 
 import com.emmanueltwumasi.schoolmanagementsystem.entity.CourseRegistration;
 import com.emmanueltwumasi.schoolmanagementsystem.service.dtos.CourseDto;

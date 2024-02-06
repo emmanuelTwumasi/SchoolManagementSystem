@@ -3,20 +3,27 @@ package com.emmanueltwumasi.schoolmanagementsystem.service.converter;
 import com.emmanueltwumasi.schoolmanagementsystem.entity.Student;
 import com.emmanueltwumasi.schoolmanagementsystem.service.dtos.requestdto.StudentDto;
 import com.emmanueltwumasi.schoolmanagementsystem.service.dtos.responsedto.StudentData;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 @Component
 public class StudentConverter{
-
+    @Autowired
+    private PasswordEncoder passwordEncoder;
     public Student infoToEntity(StudentDto studentInfo) {
         Student student = new Student();
         studentInfo.setStudentId(student.getStudentId());
         student.setFirstName(studentInfo.getFirstName());
         student.setLastName(studentInfo.getLastName());
         student.setUsername(studentInfo.getFirstName().toLowerCase().charAt(0)+studentInfo.getLastName().toLowerCase());
-        student.setPassword(studentInfo.getPassword());
+        student.setEnabled(true);
+        student.setCredentialsNonExpired(true);
+        student.setAccountNonExpired(true);
+        student.setAccountNonLocked(true);
+        student.setPassword(passwordEncoder.encode(studentInfo.getPassword()));
         return student;
     }
 

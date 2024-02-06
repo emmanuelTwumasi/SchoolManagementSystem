@@ -1,4 +1,4 @@
-package com.emmanueltwumasi.schoolmanagementsystem.service;
+package com.emmanueltwumasi.schoolmanagementsystem.service.serviceInt;
 
 import com.emmanueltwumasi.schoolmanagementsystem.entity.Course;
 import com.emmanueltwumasi.schoolmanagementsystem.entity.CourseRegistration;
@@ -10,11 +10,11 @@ import com.emmanueltwumasi.schoolmanagementsystem.exception.StudentNotFoundExcep
 import com.emmanueltwumasi.schoolmanagementsystem.repository.CourseRegistrationRepository;
 import com.emmanueltwumasi.schoolmanagementsystem.repository.CourseRepository;
 import com.emmanueltwumasi.schoolmanagementsystem.repository.StudentRepository;
+import com.emmanueltwumasi.schoolmanagementsystem.service.CourseRegService;
 import com.emmanueltwumasi.schoolmanagementsystem.service.converter.CourseRegistrationConverter;
 import com.emmanueltwumasi.schoolmanagementsystem.service.dtos.CourseDto;
 import com.emmanueltwumasi.schoolmanagementsystem.service.dtos.requestdto.EnrollmentReq;
 import com.emmanueltwumasi.schoolmanagementsystem.service.dtos.responsedto.EnrollmentResp;
-import com.emmanueltwumasi.schoolmanagementsystem.service.serviceInt.CourseRegService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -48,6 +48,7 @@ public class CourseRegServiceImpl implements CourseRegService {
 
         return courseRegistrationConverter.toDto(courseRegistration);
     }
+
 
 
     @Transactional

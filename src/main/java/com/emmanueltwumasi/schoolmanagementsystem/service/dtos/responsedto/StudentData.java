@@ -1,6 +1,5 @@
 package com.emmanueltwumasi.schoolmanagementsystem.service.dtos.responsedto;
 
-import jakarta.persistence.Column;
 import lombok.Data;
 
 import java.util.List;
@@ -11,3 +10,4 @@ public class StudentData extends StudentCommon{
     private List<String> courses;
 
 }
+

@@ -1,31 +1,43 @@
 package com.emmanueltwumasi.schoolmanagementsystem.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.ToString;
-import org.apache.commons.lang3.builder.ToStringExclude;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import lombok.*;
+import org.springframework.data.annotation.CreatedBy;
+import org.springframework.data.annotation.LastModifiedBy;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
+
 
 @EqualsAndHashCode(callSuper = true)
 @Data
 @Entity
-@Table(name="course")
+@Table(name = "course")
 public class Course extends BaseEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "courseId", nullable = false)
+    @Column(name = "course_id", nullable = false)
     private Long courseId;
 
     @Column(name="name")
     private String name;
 
+    @Column(name="description")
+    private String description;
+
+    @Column(name="code")
+    private String code;
+
     @OneToMany(mappedBy = "course",cascade = CascadeType.REMOVE, fetch = FetchType.EAGER, orphanRemoval = true)
-    Set<CourseRegistration> registrations = new HashSet<>();
+    List<CourseRegistration> registrations = new ArrayList<>();
+
+    @CreatedBy
+    private String createdBy;
+
+
+    @LastModifiedBy
+    private String lastModifiedBy;
 
 }

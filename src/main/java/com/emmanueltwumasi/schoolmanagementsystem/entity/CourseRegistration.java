@@ -3,6 +3,8 @@ package com.emmanueltwumasi.schoolmanagementsystem.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import org.springframework.data.annotation.CreatedBy;
+import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
@@ -31,5 +33,11 @@ public class CourseRegistration extends BaseEntity{
 
     @Column(name = "grade")
     private int grade;
+
+    @CreatedBy
+    private String createdBy;
+
+    @LastModifiedBy
+    private String lastModifiedBy;
 
 }
